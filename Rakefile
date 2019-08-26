@@ -16,7 +16,6 @@ namespace :db do
   task :migrate => :environment do
    require_relative './config/environment'
   end
-end
 
 task :environment do
   require_relative './config/environment'
