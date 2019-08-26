@@ -35,13 +35,6 @@ describe "Rakefile" do
         expect(Rake::Task["db:migrate"].prerequisites).to include("environment")
       end
 
-      it "create the students table in the database" do
-        Rake::Task["db:migrate"].invoke
-        sql = "SELECT name FROM sqlite_master WHERE type='table'ORDER BY name;"
-        expect(DB[:conn].execute(sql).first).to include("students")
-      end
-    end
-
     describe 'db:seed' do
       before(:each) do
         clear_database
